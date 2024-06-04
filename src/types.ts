@@ -1,20 +1,30 @@
-import { HttpContext, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpContext, HttpHeaders, HttpParams } from '@angular/common/http';
 
 export interface Options {
-  headers?: HttpHeaders | {
-      [header: string]: string | string[];
-  };
+  headers?:
+    | HttpHeaders
+    | {
+        [header: string]: string | string[];
+      };
   observe?: 'body';
   context?: HttpContext;
-  params?: HttpParams | {
-      [param: string]: string | number | boolean | ReadonlyArray<string | number | boolean>;
-  };
+  params?:
+    | HttpParams
+    | {
+        [param: string]:
+          | string
+          | number
+          | boolean
+          | ReadonlyArray<string | number | boolean>;
+      };
   reportProgress?: boolean;
   responseType?: 'json';
   withCredentials?: boolean;
-  transferCache?: {
-      includeHeaders?: string[];
-  } | boolean;
+  transferCache?:
+    | {
+        includeHeaders?: string[];
+      }
+    | boolean;
 }
 
 export interface Products {
@@ -25,8 +35,8 @@ export interface Products {
   totalPages: number;
 }
 
-
 export interface Product {
+  id?: number;
   price: string;
   name: string;
   image: string;
@@ -34,7 +44,11 @@ export interface Product {
 }
 
 export interface PaginationParams {
-  [param: string]: string | number | boolean | ReadonlyArray<string | number | boolean>;
+  [param: string]:
+    | string
+    | number
+    | boolean
+    | ReadonlyArray<string | number | boolean>;
   page: number;
   perPage: number;
 }
